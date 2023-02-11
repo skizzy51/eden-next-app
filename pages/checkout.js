@@ -24,11 +24,12 @@ export default function Checkout() {
         },
         publicKey,
         text: "Checkout",
-        // onSuccess: () => pay()
+        onSuccess: () => {
+            location.assign("/")
+        },
     }
 
     useEffect(() => {
-        console.log(totalPrice)
         const token = localStorage.getItem("token")
         dispatch(verifyUser(token))
         setCartItems(cart) // to bypass next js hydration error
