@@ -1,0 +1,98 @@
+@import "./mixins";
+@import "./variables";
+
+.account {
+    margin: 0 auto;
+    max-width: 90vw;
+    margin-top: 3vh;
+    @include justify-content-no-align(space-between);
+
+    .favorites {
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        padding-bottom: 3rem;
+        @include alignCenterWithoutJustifyContent;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .fav-item-cont {
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 17rem;
+            width: 12rem;
+            overflow: hidden;
+            padding: 0.5rem;
+            margin: 1rem;
+            transition: box-shadow 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+                    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            }
+            & img {
+                width: 100%;
+                height: 11rem;
+            }
+            & p {
+                color: black;
+                margin: 0.5rem 0;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: 0.9rem;
+            }
+            & button {
+                width: 80%;
+                margin: 0 auto;
+                @include justify-content(center);
+                border: none;
+                padding: 0.5rem;
+                background-color: crimson;
+                color: white;
+                border-radius: 10px;
+                font-size: 0.85rem;
+                transition: $backgroundColorTransition;
+                &:hover {
+                    background-color: $crimsonColorHoverChange;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .account-menu {
+        background-color: white;
+        width: 15%;
+        border-radius: 10px;
+        height: fit-content;
+        @include flex-direction(column);
+
+        & button {
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            background-color: transparent;
+            text-transform: capitalize;
+            transition: $backgroundColorTransition;
+            text-align: left;
+            &:hover {
+                background-color: rgb(207, 207, 207);
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .account .fav-item-cont {
+        width: 9rem;
+        height: 15rem;
+        & img {
+            height: 9rem;
+        }
+        & button {
+            font-size: 0.75rem;
+        }
+    }
+}
